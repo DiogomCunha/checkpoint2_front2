@@ -47,6 +47,7 @@ input:focus {
   border: 1px solid lightgrey;
 }
 
+
 label {
   width: 100%;
   font-weight: 300;
@@ -57,7 +58,7 @@ label {
 
 button {
   padding: .5em 3em;
-  background-color: var(--primary);
+  background-color: #D3D3D3;
   color: white;
   margin-top: 2em;
   font-weight: 400;
