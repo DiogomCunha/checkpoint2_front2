@@ -6,6 +6,16 @@ let emailSign = document.getElementById("inputSignMail");
 let senhaSign = document.getElementById("inputSignPassword");
 let senhaSignConf = document.getElementById("inputSignPasswordConfirm");
 
+const urlApi = 'https://ctd-todo-api.herokuapp.com/v1/users';
+const requestURL = './urlColetar.json';
+
+
+function leituraApi() {
+
+  
+
+}
+
 function inputEntries() {
   if (
     
