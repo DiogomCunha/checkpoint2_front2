@@ -43,7 +43,8 @@ function inputEntries() {
 //efetuar o fetch da API
 //tratar no segundo then a execução da função
 
-//passo 3: criar a função de cadastro
+//passo 3: 
+//criar a função de cadastro
 //armazenar no local storage o nome, sobrenome e e-mail
 //armazenar utilizando objeto json (json stringfy)
 
