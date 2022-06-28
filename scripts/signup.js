@@ -7,7 +7,7 @@ let senhaSign = document.getElementById("inputSignPassword");
 let senhaSignConf = document.getElementById("inputSignPasswordConfirm");
 
 const urlApi = 'https://ctd-todo-api.herokuapp.com/v1/users';
-const requestURL = './urlColetar.json';
+
 
 
 function leituraApi() {
@@ -32,3 +32,18 @@ function inputEntries() {
     btn.disabled = true;
   }
 }
+
+//passo 1: 
+//desenvolver o corpo da requisição
+//método
+//cabeçalho
+//corpo
+
+//passo 2: 
+//efetuar o fetch da API
+//tratar no segundo then a execução da função
+
+//passo 3: criar a função de cadastro
+//armazenar no local storage o nome, sobrenome e e-mail
+//armazenar utilizando objeto json (json stringfy)
+
