@@ -11,3 +11,4 @@ function ValidarInput(texto, mascara) {
     return false;
   }
 }
+

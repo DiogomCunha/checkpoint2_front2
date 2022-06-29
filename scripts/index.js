@@ -12,3 +12,4 @@ function inputEntries() {
     btn.disabled = true;
   }
 };
+
