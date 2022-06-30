@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+
 
     <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
     <link rel="stylesheet" href="./styles/acesso.css" />
 
     <!-- ---------------------- lógica aplicada no registro -------------------- -->
-    <script src="./scripts/utils.js"></script>
+   <script src="./scripts/utils.js"></script>
   </head>
 
   <body>
@@ -18,29 +20,29 @@
       <img src="./assets/pessoa-signup.png" alt="" />
     </div>
     <div class="right">
-      <form action="./index.html">
+      <form action="#">
         <div class="form-header">
           <p>To-Do App</p>
         </div>
 
         <label>
           Nome:
-          <input type="text" id="inputSignNome" onkeyup="inputEntries()" />
+          <input type="text" id="inputSignNome"  />
         </label>
         <label>
           Sobrenome:
-          <input type="text" id="inputSignSobrenome" onkeyup="inputEntries()" />
+          <input type="text" id="inputSignSobrenome" />
         </label>
         <label>
           Email:
-          <input type="email" id="inputSignMail" onkeyup="inputEntries()" />
+          <input type="email" id="inputSignMail"  />
         </label>
         <label>
           Senha:
           <input
             type="password"
             id="inputSignPassword"
-            onkeyup="inputEntries()"
+            
           />
         </label>
         <label>
@@ -48,7 +50,7 @@
           <input
             type="password"
             id="inputSignPasswordConfirm"
-            onkeyup="inputEntries()"
+            
           />
         </label>
 
@@ -57,7 +59,7 @@
           class="buttonCriar"
           disabled="false"
           id="buttonCriar"
-          onkeyup="acessar()"
+          onclick="inputEntries()"
         >
           Criar conta
         </button>
