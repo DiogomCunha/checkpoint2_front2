@@ -4,11 +4,20 @@ let email = document.getElementById("inputEmail");
 let senha = document.getElementById("inputPassword");
 const urlApi = "https://https://ctd-todo-api.herokuapp.com/v1/users/login";
 
+btn.addEventListener("click", (evento) => {
+  evento.preventDefault();
+});
+
+email.addEventListener("change", validacaoLogin);
+senha.addEventListener("change", validacaoLogin);
+
 function validacaoLogin() {
-  if (ValidarInput(email, mascaraEmail) && ValidarInput(senha, mascaraPwd)) {
-    btn.style.backgroundColor = "#7898FF";
-    btn.disabled = false;
-  } else {
+  if (ValidarInput(email, mascaraEmail) && 
+      ValidarInput(senha, mascaraPwd)
+  ){btn.style.backgroundColor = "#7898FF";
+    btn.disabled = false;}
+    
+    else {
     btn.style.backgroundColor = "#D3D3D3";
     btn.disabled = true;
   }
@@ -26,8 +35,7 @@ function inputEntries() {
     },
     body: JSON.stringify(data),
   };
-  fetch(urlApi, configRequis)
-      .then((res) => {
-        return res.json();
-      })
+  fetch(urlApi, configRequis).then((res) => {
+    return res.json();
+  });
 }
