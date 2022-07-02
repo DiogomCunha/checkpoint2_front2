@@ -8,6 +8,7 @@ let senhaConf = document.getElementById("inputSignPasswordConfirm");
 const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users";
 
 btn.addEventListener("click", (evento) => {
+  
   evento.preventDefault();
 
 });

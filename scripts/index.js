@@ -5,9 +5,7 @@ let senha = document.getElementById("inputPassword");
 const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users/login";
 
 
-btn.addEventListener("click", (evento) => {
-evento.preventDefault();
-});
+
 
 email.addEventListener("change", validacaoLogin);
 senha.addEventListener("change", validacaoLogin);
@@ -34,7 +32,8 @@ function inputEntries() {
     },
     body: JSON.stringify(data),
   };
-  fetch(urlApi, configRequis)
+  
+  return fetch(urlApi, configRequis)
     .then((res) => {
       return res.json();
     })
@@ -42,11 +41,14 @@ function inputEntries() {
       console.log(resp);
 
       sucessoLogin(email.value, senha.value, resp);
+      return true;
     })
     .catch((error) => {
       erroLogin(error);
+      return false;
     });
 }
+
 
 function sucessoLogin(email, senha) {
   localStorage.getItem(
@@ -60,4 +62,13 @@ function sucessoLogin(email, senha) {
 function erroLogin(statusErro) {
   console.log("Erro ao fazer login");
   console.log(statusErro);
+  alert('')
 }
+
+btn.addEventListener("click", (evento) => {
+  if (!inputEntries()){
+    evento.preventDefault();
+    
+  }
+
+});
