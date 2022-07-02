@@ -1,32 +1,31 @@
 let btn = document.querySelector(".buttonCriar");
 let lab = document.querySelector("label");
-let nomeSign = document.getElementById("inputSignNome");
-let sobrenomeSign = document.getElementById("inputSignSobrenome");
-let emailSign = document.getElementById("inputSignMail");
-let senhaSign = document.getElementById("inputSignPassword");
-let senhaSignConf = document.getElementById("inputSignPasswordConfirm");
+let nome = document.getElementById("inputSignNome");
+let sobrenome = document.getElementById("inputSignSobrenome");
+let email = document.getElementById("inputSignMail");
+let senha = document.getElementById("inputSignPassword");
+let senhaConf = document.getElementById("inputSignPasswordConfirm");
 const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users";
 
 btn.addEventListener("click", (evento) => {
   evento.preventDefault();
 
- 
 });
 
-emailSign.addEventListener('change',validacao)
-nomeSign.addEventListener('change',validacao)
-sobrenomeSign.addEventListener('change',validacao)
-senhaSign.addEventListener('change',validacao)
-senhaSignConf.addEventListener('change',validacao)
+email.addEventListener('change',validacao)
+nome.addEventListener('change',validacao)
+sobrenome.addEventListener('change',validacao)
+senha.addEventListener('change',validacao)
+senhaConf.addEventListener('change',validacao)
 
 function validacao(){
   if (
-    ValidarInput(nomeSign, mascaraNome) &&
-    ValidarInput(sobrenomeSign, mascaraSobrenome) &&
-    ValidarInput(emailSign, mascaraEmail) &&
-    ValidarInput(senhaSign, mascaraPwd) &&
-    ValidarInput(senhaSignConf, mascaraPwd) 
-    && senhaSign.value === senhaSignConf.value
+    ValidarInput(nome, mascaraNome) &&
+    ValidarInput(sobrenome, mascaraSobrenome) &&
+    ValidarInput(email, mascaraEmail) &&
+    ValidarInput(senha, mascaraPwd) &&
+    ValidarInput(senhaConf, mascaraPwd) 
+    && senha.value === senhaConf.value
   ){btn.style.backgroundColor = "#7898FF";
   btn.disabled = false;}
   
@@ -42,10 +41,10 @@ function inputEntries() {
     
 
     const data = {
-      firstName: nomeSign.value,
-      lastName: sobrenomeSign.value,
-      email: emailSign.value,
-      password: senhaSign.value,
+      firstName: nome.value,
+      lastName: sobrenome.value,
+      email: email.value,
+      password: senha.value,
     };
     const configRequis = {
       method: "POST",
@@ -63,9 +62,10 @@ function inputEntries() {
         console.log(resp);
 
         sucessoCadastro(
-          nomeSign.value,
-          sobrenomeSign.value,
-          emailSign.value,
+          nome.value,
+          sobrenome.value,
+          email.value,
+          senha.value,
           resp
         );
       })
@@ -77,16 +77,16 @@ function inputEntries() {
     //alert('Todos os campos devem estar preenchidos corretamente para continuar!')
   
 
-function sucessoCadastro(nomeSign, sobrenomeSign, emailSign, jwtRecebido) {
+function sucessoCadastro(nomeSign, sobrenomeSign, emailSign, senhaSign, jwtRecebido) {
   localStorage.setItem(
     "user",
     JSON.stringify({
-      nomeSign: nomeSign,
-      sobrenomeSign: sobrenomeSign,
-      emailSign: emailSign,
+      nome: nomeSign,
+      sobrenome: sobrenomeSign,
+      email: emailSign,
+      senha: senhaSign,
       token: jwtRecebido,
-    })
-  );
+  }));
 
   alert("Usuário criado com sucesso!");
 }

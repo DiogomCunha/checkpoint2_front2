@@ -2,22 +2,21 @@ let btn = document.querySelector(".buttonAcessar");
 let lab = document.querySelector("label");
 let email = document.getElementById("inputEmail");
 let senha = document.getElementById("inputPassword");
-const urlApi = "https://https://ctd-todo-api.herokuapp.com/v1/users/login";
+const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+
 
 btn.addEventListener("click", (evento) => {
-  evento.preventDefault();
+evento.preventDefault();
 });
 
 email.addEventListener("change", validacaoLogin);
 senha.addEventListener("change", validacaoLogin);
 
 function validacaoLogin() {
-  if (ValidarInput(email, mascaraEmail) && 
-      ValidarInput(senha, mascaraPwd)
-  ){btn.style.backgroundColor = "#7898FF";
-    btn.disabled = false;}
-    
-    else {
+  if (ValidarInput(email, mascaraEmail) && ValidarInput(senha, mascaraPwd)) {
+    btn.style.backgroundColor = "#7898FF";
+    btn.disabled = false;
+  } else {
     btn.style.backgroundColor = "#D3D3D3";
     btn.disabled = true;
   }
@@ -25,8 +24,8 @@ function validacaoLogin() {
 
 function inputEntries() {
   const data = {
-    email: emailSign.value,
-    password: senhaSign.value,
+    email: email.value,
+    password: senha.value,
   };
   const configRequis = {
     method: "POST",
@@ -35,7 +34,30 @@ function inputEntries() {
     },
     body: JSON.stringify(data),
   };
-  fetch(urlApi, configRequis).then((res) => {
-    return res.json();
-  });
+  fetch(urlApi, configRequis)
+    .then((res) => {
+      return res.json();
+    })
+    .then(function (resp) {
+      console.log(resp);
+
+      sucessoLogin(email.value, senha.value, resp);
+    })
+    .catch((error) => {
+      erroLogin(error);
+    });
+}
+
+function sucessoLogin(email, senha) {
+  localStorage.getItem(
+    "user",
+    JSON.stringify({
+      email: email,
+      senha: senha,
+    })
+  );
+}
+function erroLogin(statusErro) {
+  console.log("Erro ao fazer login");
+  console.log(statusErro);
 }
