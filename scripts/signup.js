@@ -110,3 +110,4 @@ function cadastroErro(statusErro) {
 //criar a função de cadastro
 //armazenar no local storage o nome, sobrenome e e-mail
 //armazenar utilizando objeto json (json stringfy)
+sdfsdf
