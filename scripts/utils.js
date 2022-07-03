@@ -12,3 +12,48 @@ function ValidarInput(texto, mascara) {
   }
 }
 
+class Utils {
+  constructor() {
+    this.TIPO_FETCH = {
+      Get: 0,
+      Post: 1,
+      Put: 2,
+      Delete: 3
+    };
+  }
+
+  BaseFetch(link, dados, metodo = this.TIPO_FETCH.Get) {
+    let headersFetch = {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(dados),
+    };
+    switch (metodo) {
+      case this.TIPO_FETCH.Post:
+        headersFetch.method = "POST"
+        break;
+      case this.TIPO_FETCH.Put:
+        headersFetch.method = "PUT"
+        break;
+      case this.TIPO_FETCH.Delete:
+        headersFetch.method = "DELETE"
+        break;
+      default: break;
+    }
+
+    return fetch(link, headersFetch)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        else {
+          throw res;
+        }
+      })
+      .then(function (resp) {
+        return resp;
+      });
+  }
+}

@@ -3,9 +3,7 @@ let lab = document.querySelector("label");
 let email = document.getElementById("inputEmail");
 let senha = document.getElementById("inputPassword");
 const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users/login";
-
-
-
+const utils = new Utils();
 
 email.addEventListener("change", validacaoLogin);
 senha.addEventListener("change", validacaoLogin);
@@ -20,37 +18,25 @@ function validacaoLogin() {
   }
 }
 
-function inputEntries() {
+function cadastrarUsuario() {
   const data = {
     email: email.value,
     password: senha.value,
   };
-  const configRequis = {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  };
-  
-  return fetch(urlApi, configRequis)
-    .then((res) => {
-      return res.json();
-    })
+  utils.BaseFetch(urlApi, data, utils.TIPO_FETCH.Post)
     .then(function (resp) {
-      console.log(resp);
-
-      sucessoLogin(email.value, senha.value, resp);
-      return true;
+      console.log("Fetch - segunda etapa");
+      gravarToken(email.value, senha.value, resp);
+      window.location.href = "./tarefas.html";
     })
     .catch((error) => {
-      erroLogin(error);
-      return false;
+      console.log("Erro ao fazer login");
+      console.log(error);
     });
 }
 
 
-function sucessoLogin(email, senha) {
+function gravarToken(email, senha) {
   localStorage.getItem(
     "user",
     JSON.stringify({
@@ -59,16 +45,8 @@ function sucessoLogin(email, senha) {
     })
   );
 }
-function erroLogin(statusErro) {
-  console.log("Erro ao fazer login");
-  console.log(statusErro);
-  alert('')
-}
 
 btn.addEventListener("click", (evento) => {
-  if (!inputEntries()){
-    evento.preventDefault();
-    
-  }
-
+  evento.preventDefault();
+  cadastrarUsuario();
 });

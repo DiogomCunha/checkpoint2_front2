@@ -8,58 +8,51 @@
   <title>To-Do App</title>
 
 
-    <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
-    <link rel="stylesheet" href="./styles/acesso.css" />
+  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+  <link rel="stylesheet" href="./styles/acesso.css" />
 
-    <!-- ---------------------- lógica aplicada no registro -------------------- -->
-   <script src="./scripts/utils.js"></script>
-  </head>
+  <!-- ---------------------- lógica aplicada no registro -------------------- -->
+  <script src="./scripts/utils.js"></script>
+</head>
 
-  <body>
-    <div class="left">
-      <img src="./assets/pessoa-signup.png" alt="" />
-    </div>
-    <div class="right">
-      <form action="./index.html">
-        <div class="form-header">
-          <p>To-Do App</p>
-        </div>
-
-        <label>
-          Nome:
-          <input type="text" id="inputSignNome"  />
-        </label>
-        <label>
-          Sobrenome:
-          <input type="text" id="inputSignSobrenome" />
-        </label>
-        <label>
-          Email:
-          <input type="email" id="inputSignMail"  />
-        </label>
-        <label>
-          Senha:
-          <input
-            type="password"
-            id="inputSignPassword"
-            
-          />
-        </label>
-        <label>
-          Repetir senha:
-          <input
-            type="password"
-            id="inputSignPasswordConfirm"
-            
-          />
-        </label>
-
-        <button type="submit" class="buttonCriar" disabled="false" id="buttonCriar" onclick="inputEntries()">Criar conta</button>
-      </form>
-      <div class="ingressar">
-        <a href="index.html">Já possui conta? Acesse aqui</a>
+<body>
+  <div class="left">
+    <img src="./assets/pessoa-signup.png" alt="" />
+  </div>
+  <div class="right">
+    <form action="./index.html">
+      <div class="form-header">
+        <p>To-Do App</p>
       </div>
+
+      <label>
+        Nome:
+        <input type="text" id="inputSignNome" />
+      </label>
+      <label>
+        Sobrenome:
+        <input type="text" id="inputSignSobrenome" />
+      </label>
+      <label>
+        Email:
+        <input type="email" id="inputSignMail" />
+      </label>
+      <label>
+        Senha:
+        <input type="password" id="inputSignPassword" />
+      </label>
+      <label>
+        Repetir senha:
+        <input type="password" id="inputSignPasswordConfirm" />
+      </label>
+
+      <button type="submit" class="buttonCriar" disabled="false" id="buttonCriar">Criar conta</button>
+    </form>
+    <div class="ingressar">
+      <a href="index.html">Já possui conta? Acesse aqui</a>
     </div>
-  </body>
-  <script src="./scripts/signup.js"></script>
+  </div>
+</body>
+<script src="./scripts/signup.js"></script>
+
 </html>
