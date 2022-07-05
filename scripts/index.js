@@ -32,6 +32,7 @@ function cadastrarUsuario() {
     .catch((error) => {
       console.log("Erro ao fazer login");
       console.log(error);
+      alert("Erro ao fazer login");
     });
 }
 
