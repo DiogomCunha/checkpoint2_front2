@@ -28,11 +28,12 @@ a {
 }
 
 .user-info .user-image {
+  vertical-align: middle;
   height: 2em;
   width: 2em;
   border-radius: 50%;
   background-color: white;
-  opacity: .4;
+  opacity: .7;
   margin-left: .7em;
 }
 

@@ -89,18 +89,3 @@ btn.addEventListener("click", (evento) => {
   evento.preventDefault();
   cadastrarUsuario();
 });
-
-//passo 1:
-//desenvolver o corpo da requisição
-//método
-//cabeçalho
-//corpo
-
-//passo 2:
-//efetuar o fetch da API
-//tratar no segundo then a execução da função
-
-//passo 3:
-//criar a função de cadastro
-//armazenar no local storage o nome, sobrenome e e-mail
-//armazenar utilizando objeto json (json stringfy)
