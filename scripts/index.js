@@ -27,8 +27,11 @@ function cadastrarUsuario() {
     .then(function (resp) {
       console.log("Fetch - segunda etapa");
       gravarToken(email.value, senha.value, resp);
-      window.location.href = "./tarefas.html";
+      localStorage.setItem("token",resp.jwt)
+     window.location.href = "./tarefas.html";
     })
+
+    localStorage.setItem("token",resp.jwt)
     .catch((error) => {
       console.log("Erro ao fazer login");
       console.log(error);

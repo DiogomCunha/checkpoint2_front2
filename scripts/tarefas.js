@@ -1,11 +1,40 @@
-let userNameTarefas = document.querySelector("#userName");
-function userName() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (user) {
-    userNameTarefas.innerHTML = `${user.nome} ${user.sobrenome[0]}`;
-    console.log(user, userNameTarefas);
-  }
+const userNameTarefas = document.querySelector("#userName");
+let timeout;
+
+function tempo(){
+    timeout = setTimeout(receberUser,50);
 }
 
-userName();
+window.onload = function () {
+ tempo();
+};
+
+function receberUser() {
+  const URLApi = "https://ctd-todo-api.herokuapp.com/v1/users/getMe";
+  const jwt = localStorage.getItem('token');
+  
+ 
+  
+
+  const configReceber = {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": jwt,
+    },
+  };
+
+  fetch(URLApi, configReceber)
+    .then((resp) => resp.json())
+
+    .then(function (dados) {
+      const dadosUser = `${dados.firstName} ${dados.lastName}`;
+
+      userNameTarefas.innerHTML = dadosUser;
+    })
+
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
