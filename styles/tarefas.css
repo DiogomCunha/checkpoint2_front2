@@ -37,6 +37,12 @@ a {
   margin-left: .7em;
 }
 
+#insertAvatar {
+ aspect-ratio: 1;
+width: 20%;
+  
+}
+
 #closeApp{
   margin-left: 15px;
   font-size: .7em;
