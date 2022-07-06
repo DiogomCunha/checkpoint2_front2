@@ -9,16 +9,14 @@ const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users";
 const utils = new Utils();
 
 btn.addEventListener("click", (evento) => {
-
   evento.preventDefault();
-
 });
 
-email.addEventListener('change', validacao)
-nome.addEventListener('change', validacao)
-sobrenome.addEventListener('change', validacao)
-senha.addEventListener('change', validacao)
-senhaConf.addEventListener('change', validacao)
+email.addEventListener("change", validacao);
+nome.addEventListener("change", validacao);
+sobrenome.addEventListener("change", validacao);
+senha.addEventListener("change", validacao);
+senhaConf.addEventListener("change", validacao);
 
 function validacao() {
   if (
@@ -26,20 +24,16 @@ function validacao() {
     ValidarInput(sobrenome, mascaraSobrenome) &&
     ValidarInput(email, mascaraEmail) &&
     ValidarInput(senha, mascaraPwd) &&
-    ValidarInput(senhaConf, mascaraPwd)
-    && senha.value === senhaConf.value
+    ValidarInput(senhaConf, mascaraPwd) &&
+    senha.value === senhaConf.value
   ) {
     btn.style.backgroundColor = "#7898FF";
     btn.disabled = false;
-  }
-
-  else {
+  } else {
     btn.style.backgroundColor = "#D3D3D3";
     btn.disabled = true;
   }
-};
-
-
+}
 
 function cadastrarUsuario() {
   const data = {
@@ -48,7 +42,8 @@ function cadastrarUsuario() {
     email: email.value,
     password: senha.value,
   };
-  utils.BaseFetch(urlApi, data, utils.TIPO_FETCH.Post)
+  utils
+    .BaseFetch(urlApi, data, utils.TIPO_FETCH.Post)
     .then(function (resp) {
       console.log(resp);
       sucessoCadastro(
@@ -65,7 +60,13 @@ function cadastrarUsuario() {
     });
 }
 
-function sucessoCadastro(nomeSign, sobrenomeSign, emailSign, senhaSign, jwtRecebido) {
+function sucessoCadastro(
+  nomeSign,
+  sobrenomeSign,
+  emailSign,
+  senhaSign,
+  jwtRecebido
+) {
   localStorage.setItem(
     "user",
     JSON.stringify({
@@ -74,7 +75,8 @@ function sucessoCadastro(nomeSign, sobrenomeSign, emailSign, senhaSign, jwtReceb
       email: emailSign,
       senha: senhaSign,
       token: jwtRecebido,
-    }));
+    })
+  );
 
   alert("Usuário criado com sucesso!");
 }
@@ -83,7 +85,6 @@ function cadastroErro(statusErro) {
   console.log("Erro ao cadastrar usuário");
   console.log(statusErro);
 }
-
 
 btn.addEventListener("click", (evento) => {
   evento.preventDefault();

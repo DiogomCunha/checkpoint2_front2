@@ -1,26 +1,23 @@
 const userNameTarefas = document.querySelector("#userName");
 let timeout;
 
-function tempo(){
-    timeout = setTimeout(receberUser,50);
+function tempo() {
+  timeout = setTimeout(receberUser, 50);
 }
 
 window.onload = function () {
- tempo();
+  tempo();
 };
 
 function receberUser() {
   const URLApi = "https://ctd-todo-api.herokuapp.com/v1/users/getMe";
-  const jwt = localStorage.getItem('token');
-  
- 
-  
+  const jwt = localStorage.getItem("token");
 
   const configReceber = {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "Authorization": jwt,
+      Authorization: jwt,
     },
   };
 
@@ -28,7 +25,7 @@ function receberUser() {
     .then((resp) => resp.json())
 
     .then(function (dados) {
-      const dadosUser = `${dados.firstName} ${dados.lastName[0]+'.'}`;
+      const dadosUser = `${dados.firstName} ${dados.lastName[0] + "."}`;
 
       userNameTarefas.innerHTML = dadosUser;
     })
@@ -37,4 +34,3 @@ function receberUser() {
       console.log(err);
     });
 }
-

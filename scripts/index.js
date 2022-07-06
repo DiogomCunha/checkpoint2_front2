@@ -23,22 +23,19 @@ function cadastrarUsuario() {
     email: email.value,
     password: senha.value,
   };
-  utils.BaseFetch(urlApi, data, utils.TIPO_FETCH.Post)
-    .then(function (resp) {
-      console.log("Fetch - segunda etapa");
-      gravarToken(email.value, senha.value, resp);
-      localStorage.setItem("token",resp.jwt)
-     window.location.href = "./tarefas.html";
-    })
+  utils.BaseFetch(urlApi, data, utils.TIPO_FETCH.Post).then(function (resp) {
+    console.log("Fetch - segunda etapa");
+    gravarToken(email.value, senha.value, resp);
+    localStorage.setItem("token", resp.jwt);
+    window.location.href = "./tarefas.html";
+  });
 
-    localStorage.setItem("token",resp.jwt)
-    .catch((error) => {
-      console.log("Erro ao fazer login");
-      console.log(error);
-      alert("Erro ao fazer login");
-    });
+  localStorage.setItem("token", resp.jwt).catch((error) => {
+    console.log("Erro ao fazer login");
+    console.log(error);
+    alert("Erro ao fazer login");
+  });
 }
-
 
 function gravarToken(email, senha) {
   localStorage.getItem(
