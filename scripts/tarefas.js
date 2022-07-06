@@ -1,14 +1,6 @@
 const userNameTarefas = document.querySelector("#userName");
 const listaTarefasPendentes = document.querySelector("#tarefasPendentes");
 const listaTarefasConcluidas = document.querySelector('#tarefasTerminadas');
-
-<<<<<<< HEAD
-function tempo() {
-  timeout = setTimeout(receberUser, 20);
-}
-=======
->>>>>>> 83ca440be73a10f06fa2ff483a006cb2449bfe59
-
 window.onload = function () {
   receberUser()
   listaTaf()
