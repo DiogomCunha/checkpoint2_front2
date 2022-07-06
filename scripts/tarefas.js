@@ -2,7 +2,7 @@ const userNameTarefas = document.querySelector("#userName");
 let timeout;
 
 function tempo() {
-  timeout = setTimeout(receberUser, 50);
+  timeout = setTimeout(receberUser, 20);
 }
 
 window.onload = function () {
