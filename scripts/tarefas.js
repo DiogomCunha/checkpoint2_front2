@@ -28,7 +28,7 @@ function receberUser() {
     .then((resp) => resp.json())
 
     .then(function (dados) {
-      const dadosUser = `${dados.firstName} ${dados.lastName}`;
+      const dadosUser = `${dados.firstName} ${dados.lastName[0]+'.'}`;
 
       userNameTarefas.innerHTML = dadosUser;
     })
