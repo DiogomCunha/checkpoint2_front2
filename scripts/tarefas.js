@@ -1,9 +1,19 @@
 const userNameTarefas = document.querySelector("#userName");
 const listaTarefasPendentes = document.querySelector("#tarefasPendentes");
+<<<<<<< HEAD
 const listaTarefasConcluidas = document.querySelector("#tarefasTerminadas");
 let desc = document.querySelector("#novaTarefa");
 let bot = document.querySelector("#botaoTaf");
 
+=======
+<<<<<<< HEAD
+const listaTarefasConcluidas = document.querySelector("#tarefasTerminadas");
+const createTask = document.querySelector("submitCriar");
+
+=======
+const listaTarefasConcluidas = document.querySelector('#tarefasTerminadas');
+>>>>>>> 1c3a3ba0e175e5773386241929b437b91857e1df
+>>>>>>> b9a1e68c260010ea2126eb4f3935c7643a1a68eb
 window.onload = function () {
   receberUser();
   listaTaf();
@@ -48,6 +58,7 @@ function renderTaf(tasks) {
       });
 
       if (task.completed) {
+<<<<<<< HEAD
         listaTarefasConcluidas.innerHTML += `<li class="tarefa">
         <div class="not-done" onclick="removerTarefa(${task.id})"></div>
         <div class="descricao">
@@ -57,6 +68,18 @@ function renderTaf(tasks) {
       </li>`;
       } else {
         listaTarefasPendentes.innerHTML += `<li class="tarefa">
+=======
+        listaTarefasConcluidas.innerHTML = `<li class="tarefa">
+                <div class="not-done"
+                onclick="RemoverTarefa(${task.id})></div>
+                <div class="descricao">
+                  <p class="nome">${task.description}</p>
+                  <p class="timestamp"> "Criada em:" ${dataBR}</p>
+                </div>
+              </li>`;
+      } else {
+        listaTarefasPendentes.innerHTML = `<li class="tarefa">
+>>>>>>> b9a1e68c260010ea2126eb4f3935c7643a1a68eb
         <div class="not-done" onclick="atualizarTarefa(${task.id},true)"></div>
         <div class="descricao">
           <p class="nome">${task.description}</p>
@@ -84,6 +107,7 @@ function listaTaf() {
     .then((resp) => resp.json())
     .then((dados) => {
       console.log(dados);
+<<<<<<< HEAD
 
       renderTaf(dados);
     });
@@ -173,3 +197,32 @@ function removerTarefa(id){
     listaTaf();
   })
 }
+=======
+
+      renderTaf(dados);
+    });
+}
+
+function criarTarefa() {
+  const dataFor = newDate(data.createdAt).toLocaleDateString("pt-BR", 
+  
+  {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }
+
+  if (createTask.innerHTML =
+    `<li class="tarefa">
+            <div class="not-done"></div>
+           <div class="descricao">
+             <p class="nome">${data.description}</p>
+             <p class="timestamp"> "Criada em:" ${dataFormatada}</p>
+          </div>
+         </li>`
+
+ 
+  
+  );
+}
+>>>>>>> b9a1e68c260010ea2126eb4f3935c7643a1a68eb
