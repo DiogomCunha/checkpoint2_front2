@@ -1,8 +1,12 @@
 const userNameTarefas = document.querySelector("#userName");
 const listaTarefasPendentes = document.querySelector("#tarefasPendentes");
+<<<<<<< HEAD
 const listaTarefasConcluidas = document.querySelector("#tarefasTerminadas");
 const createTask = document.querySelector("submitCriar");
 
+=======
+const listaTarefasConcluidas = document.querySelector('#tarefasTerminadas');
+>>>>>>> 1c3a3ba0e175e5773386241929b437b91857e1df
 window.onload = function () {
   receberUser();
   listaTaf();
