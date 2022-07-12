@@ -49,10 +49,13 @@ function renderTaf(tasks) {
 
       if (task.completed) {
         listaTarefasConcluidas.innerHTML += `<li class="tarefa">
-        <div class="not-done" onclick="removerTarefa(${task.id})"></div>
+        <div class="not-done" onclick="atualizarTarefa(${task.id})"></div>
         <div class="descricao">
           <p class="nome">${task.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
+          <button class="lixeiraTaf">
+          <img src="./assets/lixeira.svg" alt="lixeira">
+          </button>
         </div>
       </li>`;
       } else {
@@ -61,6 +64,9 @@ function renderTaf(tasks) {
         <div class="descricao">
           <p class="nome">${task.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
+          <button class="lixeiraTaf">
+          <img src="./assets/lixeira.svg" alt="lixeira">
+          </button>
         </div>
       </li>`;
       }
@@ -123,6 +129,9 @@ function criarTaf() {
         <div class="descricao">
           <p class="nome">${dados.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
+          <button class="lixeiraTaf">
+          <img src="./assets/lixeira.svg" alt="lixeira">
+          </button>
         </div>
       </li>`;
     });

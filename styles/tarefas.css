@@ -52,6 +52,10 @@ a {
   cursor: pointer;
 }
 
+.lixeiraTaf {
+width: 30px;
+}
+
 /* Nova tarefa ----------------------------------------------------------- */
 
 .nova-tarefa {
