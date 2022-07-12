@@ -84,6 +84,14 @@ function sucessoCadastro(
 function cadastroErro(statusErro) {
   console.log("Erro ao cadastrar usuário");
   console.log(statusErro);
+  if(statusErro.status === 400){
+  alert("Usuario já Cadastrado");
+  window.location.href = "./signup.html";
+  }
+  else if (statusErro.status === 500){
+    alert("Erro ao Cadastrar Usuario, erro de servidor");
+    window.location.href = "./signup.html";
+  }
 }
 
 btn.addEventListener("click", (evento) => {

@@ -39,6 +39,8 @@ function cadastrarUsuario() {
     console.log("Erro ao fazer login");
     console.log(error);
     alert("Erro ao fazer login");
+    window.location.href = "./index.html";
+    
   });
 }
 
