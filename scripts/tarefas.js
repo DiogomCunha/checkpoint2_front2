@@ -49,11 +49,11 @@ function renderTaf(tasks) {
 
       if (task.completed) {
         listaTarefasConcluidas.innerHTML += `<li class="tarefa">
-        <div class="not-done" onclick="atualizarTarefa(${task.id})"></div>
+        <div class="not-done" onclick="voltarTarefa(${task.id})"></div>
         <div class="descricao">
           <p class="nome">${task.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
-          <button class="lixeiraTaf">
+          <button class="lixeiraTaf" onclick="removerTarefa(${task.id})">
           <img src="./assets/lixeira.svg" alt="lixeira">
           </button>
         </div>
@@ -64,7 +64,7 @@ function renderTaf(tasks) {
         <div class="descricao">
           <p class="nome">${task.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
-          <button class="lixeiraTaf">
+          <button class="lixeiraTaf" onclick="removerTarefa(${task.id})">
           <img src="./assets/lixeira.svg" alt="lixeira">
           </button>
         </div>
@@ -129,7 +129,7 @@ function criarTaf() {
         <div class="descricao">
           <p class="nome">${dados.description}</p>
           <p class="timestamp"> Criada em: ${dataBR}</p>
-          <button class="lixeiraTaf">
+          <button class="lixeiraTaf" onclick="removerTarefa(${dados.id})">
           <img src="./assets/lixeira.svg" alt="lixeira">
           </button>
         </div>
@@ -157,6 +157,27 @@ function atualizarTarefa(id, completed){
 
   };
   configuracaoAtualizar.body = JSON.stringify({completed});
+
+
+  fetch(URLApi, configuracaoAtualizar).then((response) => response.json())
+  .then(() => {
+    listaTaf();
+  })
+}
+function voltarTarefa(id, completed){
+
+  const URLApi = `https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks/${id}`;
+  const jwt = localStorage.getItem("token");
+  const configuracaoAtualizar = {
+    method: "PUT",
+    body: "",
+    headers: {
+      "content-type": "application/json",
+      Authorization: jwt,
+    },
+
+  };
+  configuracaoAtualizar.body = JSON.stringify({completed:false});
 
 
   fetch(URLApi, configuracaoAtualizar).then((response) => response.json())
