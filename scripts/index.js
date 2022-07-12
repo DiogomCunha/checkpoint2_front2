@@ -5,6 +5,10 @@ let senha = document.getElementById("inputPassword");
 const urlApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login";
 const utils = new Utils();
 
+btn.addEventListener("click", (evento) => {
+  evento.preventDefault();
+});
+
 email.addEventListener("change", validacaoLogin);
 senha.addEventListener("change", validacaoLogin);
 
@@ -27,6 +31,7 @@ function cadastrarUsuario() {
     console.log("Fetch - segunda etapa");
     gravarToken(email.value, senha.value, resp);
     localStorage.setItem("token", resp.jwt);
+    alert("Login Efetuado com Sucesso! clique em Ok para ir para a Pagina de Tarefas!");
     window.location.href = "./tarefas.html";
   })
 
@@ -49,5 +54,6 @@ function gravarToken(email, senha) {
 
 btn.addEventListener("click", (evento) => {
   evento.preventDefault();
+  mostrarSpinner();
   cadastrarUsuario();
 });

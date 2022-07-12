@@ -89,4 +89,5 @@ function cadastroErro(statusErro) {
 btn.addEventListener("click", (evento) => {
   evento.preventDefault();
   cadastrarUsuario();
+  mostrarSpinner();
 });
