@@ -10,7 +10,7 @@ window.onload = function () {
 };
 
 function receberUser() {
-  const URLApi = "https://ctd-todo-api.herokuapp.com/v1/users/getMe";
+  const URLApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/getMe";
   const jwt = localStorage.getItem("token");
 
   const configReceber = {
@@ -69,7 +69,7 @@ function renderTaf(tasks) {
 }
 
 function listaTaf() {
-  const URLApi = "https://ctd-todo-api.herokuapp.com/v1/tasks";
+  const URLApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks";
   const jwt = localStorage.getItem("token");
 
   const configReceber = {
@@ -89,7 +89,7 @@ function listaTaf() {
     });
 }
 function criarTaf() {
-  const URLApi = "https://ctd-todo-api.herokuapp.com/v1/tasks";
+  const URLApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks";
   const jwt = localStorage.getItem("token");
   const configReceber = {
     method: "POST",
@@ -136,7 +136,7 @@ bot.addEventListener("click", (evento) => {
 
 function atualizarTarefa(id, completed){
 
-  const URLApi = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
+  const URLApi = `https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks/${id}`;
   const jwt = localStorage.getItem("token");
   const configuracaoAtualizar = {
     method: "PUT",
@@ -157,7 +157,7 @@ function atualizarTarefa(id, completed){
 }
 function removerTarefa(id){
 
-  const URLApi = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
+  const URLApi = `https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks/${id}`;
   const jwt = localStorage.getItem("token");
   const configuracaoAtualizar = {
     method: "DELETE",

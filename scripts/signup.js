@@ -5,7 +5,7 @@ let sobrenome = document.getElementById("inputSignSobrenome");
 let email = document.getElementById("inputSignMail");
 let senha = document.getElementById("inputSignPassword");
 let senhaConf = document.getElementById("inputSignPasswordConfirm");
-const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users";
+const urlApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users";
 const utils = new Utils();
 
 btn.addEventListener("click", (evento) => {

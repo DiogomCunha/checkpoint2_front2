@@ -2,7 +2,7 @@ let btn = document.querySelector(".buttonAcessar");
 let lab = document.querySelector("label");
 let email = document.getElementById("inputEmail");
 let senha = document.getElementById("inputPassword");
-const urlApi = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+const urlApi = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login";
 const utils = new Utils();
 
 email.addEventListener("change", validacaoLogin);
